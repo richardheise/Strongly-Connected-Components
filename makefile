@@ -39,11 +39,17 @@ CFLAGS  = -std=c99 \
 .PHONY : all clean
 
 #------------------------------------------------------------------------------
-all : test
+all : main
 
-test : test.o graph.o
+main : src/main.o src/graph.o
 	$(CC) $(CFLAGS) -o $@ $^ -lcgraph
+
+src/main.o: src/main.c src/graph.h
+	$(CC) $(CFLAGS) -Isrc -c -o $@ src/main.c
+
+src/graph.o: src/graph.c src/graph.h
+	$(CC) $(CFLAGS) -Isrc -c -o $@ src/graph.c
 
 #------------------------------------------------------------------------------
 clean :
-	$(RM) test *.o
+	$(RM) main src/*.o

@@ -13,7 +13,7 @@ make
 Para executar o código, você precisa fornecer um grafo no formato `dot` para a entrada padrão. Por exemplo:
 
 ```bash
-./test < input.txt
+./main < input.txt
 ```
 
 A saída serão os componentes fortemente conectados do grafo de entrada, também no formato `dot`.
